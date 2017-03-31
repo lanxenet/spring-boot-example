@@ -1,12 +1,11 @@
 package org.inspireso.springboot.web.api;
 
+import java.util.List;
+
 import org.inspireso.springboot.domain.User;
 import org.inspireso.springboot.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * Created by lanxe on 2017/3/28.
@@ -18,47 +17,36 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping(path = "", method = RequestMethod.GET)
-    public SimpleUser find(@RequestParam("id") String id) {
-        User user = userService.findById(id);
-        SimpleUser result = new SimpleUser();
-        result.setAddress(user.getAddress());
-        result.setName(user.getName());
-        return result;
+    @RequestMapping(method = RequestMethod.GET)
+    public List<User> findAll() {
+        return userService.findAll();
     }
 
-    @RequestMapping(path = "", method = RequestMethod.POST)
-    public void update(@RequestParam("id") String id,
-                             @RequestParam("name") String name,
-                             @RequestParam("address") String address) {
+    @RequestMapping(path = "/{id}", method = RequestMethod.GET)
+    public User find(@PathVariable("id") String id) {
+        return userService.findById(id);
+    }
 
+    @RequestMapping(method = RequestMethod.POST)
+    public void update(@RequestParam("id") String id,
+                       @RequestParam("sex") String sex,
+                       @RequestParam("tel") String tel,
+                       @RequestParam("name") String name,
+                       @RequestParam("address") String address) {
         User user = userService.findById(id);
+        if (user == null) {
+            user = new User();
+        }
+        user.setSex(sex);
+        user.setTel(tel);
         user.setName(name);
         user.setAddress(address);
         userService.update(user);
     }
 
-
-
-    public static class SimpleUser {
-        private String name;
-        private String address;
-
-        public String getName() {
-            return name;
-        }
-
-        public void setName(String name) {
-            this.name = name;
-        }
-
-        public String getAddress() {
-            return address;
-        }
-
-        public void setAddress(String address) {
-            this.address = address;
-        }
+    @RequestMapping(path = "/{id}", method = RequestMethod.DELETE)
+    public void delete(@PathVariable("id") String id) {
+        userService.delete(id);
     }
 
 }

@@ -1,5 +1,7 @@
 package org.inspireso.springboot.service;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.inspireso.springboot.domain.User;
@@ -21,10 +23,20 @@ public class UserService {
         return userRepository.saveAndFlush(user);
     }
 
+    public List<User> findAll() {
+        return userRepository.findAll();
+    }
+
     public User findById(String id) {
         return userRepository.findOne(id);
     }
 
+    @Transactional
+    public void delete(String id) {
+        userRepository.delete(id);
+    }
+
+    @Transactional
     public User update(User user) {
         return userRepository.saveAndFlush(user);
     }
@@ -36,9 +48,9 @@ public class UserService {
 //            userRepository.saveAndFlush(user);
 //        }
         int effected = userRepository.updateNameById(id, name);
-        if(effected > 0){
+        if (effected > 0) {
             return userRepository.findOne(id);
-        }else{
+        } else {
             throw new RuntimeException("update fail!");
         }
 

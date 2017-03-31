@@ -2,9 +2,9 @@ package org.inspireso.springboot.domain;
 
 import java.io.Serializable;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+
+import org.hibernate.annotations.GenericGenerator;
 
 /**
  * Created by lanxe on 2017/3/28.
@@ -13,6 +13,9 @@ import javax.persistence.Table;
 @Table(name="USER")
 public class User implements Serializable {
     @Id
+    @GeneratedValue(generator = "UUIDGen")
+    @GenericGenerator(name = "UUIDGen", strategy = "uuid")
+    @Column(name = "id", unique = true, length = 32, nullable = false)
     private String id;
 
     private String name;
