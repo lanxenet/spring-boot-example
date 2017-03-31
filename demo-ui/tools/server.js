@@ -63,7 +63,6 @@ module.exports = new Promise((resolve, reject) => {
         function (proxyReq, originalReq, res) {
           console.log(`PROXY: ${proxyReq.path}`);
           proxyReq.setHeader('Host', originalReq.headers.host);
-          // proxyReq.setHeader('Host', 'apm.ewinlu.com');
         }
       ]
     },

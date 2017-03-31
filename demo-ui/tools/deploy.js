@@ -49,7 +49,7 @@ function configScript() {
   return Promise.resolve()
     .then(() => {
       // deploy static files
-      let local = path.resolve(__dirname, '../../apm-srvhost/config/context');
+      let local = path.resolve(__dirname, '../../spring-boot-demo/config/context');
       let remove = `${target.cwd}/config/context/`;
       console.log(`put directory ${local} -> ${remove}`);
 

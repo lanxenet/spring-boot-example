@@ -8,7 +8,7 @@
 var path = require('path');
 var port = process.env.PORT || 80;
 var host = process.env.WEBSITE_HOSTNAME || `localhost:${port}`;
-var jar = path.resolve(__dirname, '../../apm-srvhost/target/apm-server.jar');
+var jar = path.resolve(__dirname, '../../spring-boot-demo/target/bootstrap.jar');
 
 var config = {
     port: port,
