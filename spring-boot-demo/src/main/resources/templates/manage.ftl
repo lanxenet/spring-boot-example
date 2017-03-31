@@ -15,7 +15,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="author" content="Inspireso Team"/>
 
-  <title>IPS.APM</title>
+  <title>DEMO</title>
   <link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
   <link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" rel="stylesheet"/>
   <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet"/>
