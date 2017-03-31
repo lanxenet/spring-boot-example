@@ -172,19 +172,6 @@ crashlytics-build.properties
 fabric.properties
 
 .idea/
-apm-agent/src/main/resources/static/
-apm-agent/src/main/resources/templates/
-apm-agent/target/
-apm-parent.iml
-apm-sdk/apm-sdk.iml
-apm-sdk/src/test/data/
-apm-sdk/src/test/java/
-apm-sdk/src/test/resources/application.properties
-apm-sdk/src/test/resources/logback-test.xml
-apm-sdk/target/
-apm-srvhost/apm-srvhost.iml
-apm-srvhost/src/test/resources/
-apm-srvhost/target/
 test/
 /build/docker/app/assets/
 /build/docker/app/bootstrap.jar
